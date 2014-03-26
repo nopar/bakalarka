@@ -6,34 +6,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sprhib.dao.StatDAO;
+import com.sprhib.dao.StatDAOImpl;
 import com.sprhib.model.Stat;
 
 @Service
 @Transactional
-public class StatServiceImpl implements StatService {
+public class StatServiceImpl implements EntityService<Stat> {
 	
 	@Autowired
-	private StatDAO statDAO;
+	private StatDAOImpl statDAO;
 
-	public void addStat(Stat stat) {
-		statDAO.addStat(stat);		
+	public void addEntity(Stat stat) {
+		statDAO.addEntity(stat);		
 	}
 
-	public void updateStat(Stat stat) {
-		statDAO.updateStat(stat);
+	public void updateEntity(Stat stat) {
+		statDAO.updateEntity(stat);
 	}
 
-	public Stat getStat(int id) {
-		return statDAO.getStat(id);
+	public Stat getEntity(int id) {
+		return statDAO.getEntity(id);
 	}
 
-	public void deleteStat(int id) {
-		statDAO.deleteStat(id);
+	public void deleteEntity(int id) {
+		statDAO.getEntity(id);
 	}
 
-	public List<Stat> getStats() {
-		return statDAO.getStats();
+	public List<Stat> getEntites() {
+		return statDAO.getEntites();
 	}
 
 }

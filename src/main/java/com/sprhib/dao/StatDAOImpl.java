@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.sprhib.model.Stat;
 
 @Repository
-public class StatDAOImpl implements StatDAO {
+public class StatDAOImpl implements EntityDAO<Stat> {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -19,30 +19,30 @@ public class StatDAOImpl implements StatDAO {
 		return sessionFactory.getCurrentSession();
 	}
 
-	public void addStat(Stat stat) {
+	public void addEntity(Stat stat) {
 		getCurrentSession().save(stat);
 	}
 
-	public void updateStat(Stat stat) {
-		Stat statToUpdate = getStat(stat.getIdStat());
+	public void updateEntity(Stat stat) {
+		Stat statToUpdate = getEntity(stat.getIdStat());
 		statToUpdate.setStat(stat.getStat());
 		statToUpdate.setSkratka(stat.getSkratka());
 		getCurrentSession().update(statToUpdate);		
 	}
 
-	public Stat getStat(int id) {
+	public Stat getEntity(int id) {
 		Stat stat = (Stat) getCurrentSession().get(Stat.class, id);
 		return stat;
 	}
 
-	public void deleteStat(int id) {
-		Stat stat = getStat(id);
+	public void deleteEntity(int id) {
+		Stat stat = getEntity(id);
 		if (stat != null)
 			getCurrentSession().delete(stat);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Stat> getStats() {
+	public List<Stat> getEntites() {
 		return getCurrentSession().createQuery("from Stat").list();
 	}
 

@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sprhib.model.Stat;
-import com.sprhib.service.StatService;
+import com.sprhib.service.EntityService;
 
 @Controller
 @RequestMapping(value="/stat")
 public class StatController {
 	
 	@Autowired
-	private StatService statService;
+	private EntityService<Stat> statService;
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public ModelAndView addStatPage() {
@@ -31,7 +31,7 @@ public class StatController {
 	public ModelAndView addingStat(@ModelAttribute Stat stat) {
 		
 		ModelAndView modelAndView = new ModelAndView("home");
-		statService.addStat(stat);
+		statService.addEntity(stat);
 		
 		String message = "Stat was successfully added.";
 		modelAndView.addObject("message", message);
@@ -43,7 +43,7 @@ public class StatController {
 	public ModelAndView listOfStats() {
 		ModelAndView modelAndView = new ModelAndView("list-stat");
 		
-		List<Stat> stats = statService.getStats();
+		List<Stat> stats = statService.getEntites();
 		modelAndView.addObject("stats", stats);
 		
 		return modelAndView;
@@ -52,7 +52,7 @@ public class StatController {
 	@RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
 	public ModelAndView editStatPage(@PathVariable Integer id) {
 		ModelAndView modelAndView = new ModelAndView("edit-stat");
-		Stat stat = statService.getStat(id);
+		Stat stat = statService.getEntity(id);
 		modelAndView.addObject("stat",stat);
 		return modelAndView;
 	}
@@ -62,7 +62,7 @@ public class StatController {
 		
 		ModelAndView modelAndView = new ModelAndView("home");
 		
-		statService.updateStat(stat);
+		statService.updateEntity(stat);
 		
 		String message = "Stat was successfully edited.";
 		modelAndView.addObject("message", message);
@@ -73,7 +73,7 @@ public class StatController {
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
 	public ModelAndView deleteStat(@PathVariable Integer id) {
 		ModelAndView modelAndView = new ModelAndView("home");
-		statService.deleteStat(id);
+		statService.deleteEntity(id);
 		String message = "Stat was successfully deleted.";
 		modelAndView.addObject("message", message);
 		return modelAndView;
