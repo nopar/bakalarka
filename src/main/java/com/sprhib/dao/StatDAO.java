@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.sprhib.model.Stat;
 
 @Repository
-public class StatDAOImpl implements EntityDAO<Stat> {
+public class StatDAO implements EntityDAO<Stat> {
 	
 	@Autowired
 	private SessionFactory sessionFactory;

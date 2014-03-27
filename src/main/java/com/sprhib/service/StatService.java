@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sprhib.dao.StatDAOImpl;
+import com.sprhib.dao.StatDAO;
 import com.sprhib.model.Stat;
 
 @Service
 @Transactional
-public class StatServiceImpl implements EntityService<Stat> {
+public class StatService implements EntityService<Stat> {
 	
 	@Autowired
-	private StatDAOImpl statDAO;
+	private StatDAO statDAO;
 
 	public void addEntity(Stat stat) {
 		statDAO.addEntity(stat);		
