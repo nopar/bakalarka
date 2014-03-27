@@ -1,5 +1,6 @@
 package com.sprhib.controller;
 
+import com.sprhib.model.Skupiny;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,24 +15,25 @@ import com.sprhib.model.Stat;
 import com.sprhib.service.EntityService;
 
 @Controller
-@RequestMapping(value="/stat")
-public class StatController {
+@RequestMapping(value="/skupiny")
+public class SkupinyController {
 	
 	@Autowired
-	private EntityService<Stat> statService;
+	private EntityService<Skupiny> skupinyService;
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
-	public ModelAndView addStatPage() {
-		ModelAndView modelAndView = new ModelAndView("add-stat");
-		modelAndView.addObject("stat", new Stat());
+	public ModelAndView addSKupinaPage() {
+		ModelAndView modelAndView = new ModelAndView("add-skupiny");
+		modelAndView.addObject("skupiny", new Skupiny());
 		return modelAndView;
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public ModelAndView addingStat(@ModelAttribute Stat stat) {
+	public ModelAndView addingSkupina(
+                @ModelAttribute Skupiny skupiny) {
 		
 		ModelAndView modelAndView = new ModelAndView("home");
-		statService.addEntity(stat);
+		skupinyService.addEntity(skupiny);
 		
 		String message = "Stat was successfully added.";
 		modelAndView.addObject("message", message);
@@ -40,29 +42,31 @@ public class StatController {
 	}
 	
 	@RequestMapping(value="/list")
-	public ModelAndView listOfStats() {
-		ModelAndView modelAndView = new ModelAndView("list-stat");
+	public ModelAndView listOfSkupiny() {
+		ModelAndView modelAndView = new ModelAndView("list-skupiny");
 		
-		List<Stat> stats = statService.getEntites();
-		modelAndView.addObject("stats", stats);
+		List<Skupiny> skupiny = skupinyService.getEntites();
+		modelAndView.addObject("skupiny", skupiny);
 		
 		return modelAndView;
 	}
 	
 	@RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
-	public ModelAndView editStatPage(@PathVariable Integer id) {
-		ModelAndView modelAndView = new ModelAndView("edit-stat");
-		Stat stat = statService.getEntity(id);
-		modelAndView.addObject("stat",stat);
+	public ModelAndView editSkupinaPage(@PathVariable Integer id) {
+		ModelAndView modelAndView = new ModelAndView("edit-skupiny");
+		Skupiny skupiny = skupinyService.getEntity(id);
+		modelAndView.addObject("skupiny",skupiny);
 		return modelAndView;
 	}
 	
 	@RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
-	public ModelAndView edditingStat(@ModelAttribute Stat stat, @PathVariable Integer id) {
+	public ModelAndView edditingSkupina(
+                @ModelAttribute Skupiny skupiny, 
+                @PathVariable Integer id) {
 		
 		ModelAndView modelAndView = new ModelAndView("home");
 		
-		statService.updateEntity(stat);
+		skupinyService.updateEntity(skupiny);
 		
 		String message = "Stat was successfully edited.";
 		modelAndView.addObject("message", message);
@@ -71,10 +75,11 @@ public class StatController {
 	}
 	
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
-	public ModelAndView deleteStat(@PathVariable Integer id) {
+	public ModelAndView deleteStat(
+                @PathVariable Integer id) {
             
 		ModelAndView modelAndView = new ModelAndView("home");
-		statService.deleteEntity(id);
+		skupinyService.deleteEntity(id);
 		String message = "Stat was successfully deleted.";
 		modelAndView.addObject("message", message);
 		return modelAndView;

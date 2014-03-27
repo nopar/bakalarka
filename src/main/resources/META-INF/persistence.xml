@@ -3,6 +3,17 @@
   <persistence-unit name="com.mvchib_Bakalarka-NTS_war_0.0.2-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.sprhib.model.Skupiny</class>
+    <class>com.sprhib.model.Odber</class>
+    <class>com.sprhib.model.Mesto</class>
+    <class>com.sprhib.model.KrvnaSkupina</class>
+    <class>com.sprhib.model.Nts</class>
+    <class>com.sprhib.model.Adresa</class>
+    <class>com.sprhib.model.Stat</class>
+    <class>com.sprhib.model.Pouzivatelia</class>
+    <class>com.sprhib.model.Kraj</class>
+    <class>com.sprhib.model.ZaznamDarcu</class>
+    <class>com.sprhib.model.VyjazdovyOdber</class>
+    <class>com.sprhib.model.Nastavenie</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/nts_bakalarka"/>

@@ -15,6 +15,11 @@
             <a href="${pageContext.request.contextPath}/stat/add.html">Add new - stat</a><br/>
             <a href="${pageContext.request.contextPath}/stat/list.html">Stat - ZOZNAM</a><br/>
         </p>
+        
+         <p>
+            <a href="${pageContext.request.contextPath}/skupiny/add.html">Add new - skupinu</a><br/>
+            <a href="${pageContext.request.contextPath}/skupiny/list.html">Skupiny - ZOZNAM</a><br/>
+        </p>
 
         ${message}<br/>
     </body>

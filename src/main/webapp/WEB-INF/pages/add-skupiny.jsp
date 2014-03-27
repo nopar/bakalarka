@@ -9,21 +9,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Add STAT page</title>
+<title>Add team page</title>
 </head>
 <body>
-<h1>Add STAT page</h1>
+<h1>Add team page</h1>
 <p>Here you can add a new team.</p>
-<form:form method="POST" commandName="stat" action="${pageContext.request.contextPath}/stat/add.html">
+<form:form method="POST" commandName="skupiny" action="${pageContext.request.contextPath}/skupiny/add.html">
 <table>
 <tbody>
 	<tr>
-		<td>Nazov statu</td>
-		<td><form:input path="stat" /></td>
+		<td>Autorita:</td>
+		<td><form:input path="autorita" /></td>
 	</tr>
 	<tr>
-		<td>Skratka:</td>
-		<td><form:input path="skratka" /></td>
+		<td>Specialne:</td>
+		<td><form:input path="specialne" /></td>
 	</tr>
 	<tr>
 		<td><input type="submit" value="Add" /></td>
