@@ -45,5 +45,12 @@ public class StatDAO implements EntityDAO<Stat> {
 	public List<Stat> getEntites() {
 		return getCurrentSession().createQuery("from Stat").list();
 	}
+        
+//        public List<Stat> getListJSON() {
+//        
+//            List songList = getCurrentSession().createQuery("from Stat").list();
+//            return songList;
+//        
+//        }
 
 }

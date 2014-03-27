@@ -12,28 +12,32 @@ import com.sprhib.model.Stat;
 @Service
 @Transactional
 public class StatService implements EntityService<Stat> {
-	
-	@Autowired
-	private StatDAO statDAO;
 
-	public void addEntity(Stat stat) {
-		statDAO.addEntity(stat);		
-	}
+    @Autowired
+    private StatDAO statDAO;
 
-	public void updateEntity(Stat stat) {
-		statDAO.updateEntity(stat);
-	}
+    public void addEntity(Stat stat) {
+        statDAO.addEntity(stat);
+    }
 
-	public Stat getEntity(int id) {
-		return statDAO.getEntity(id);
-	}
+    public void updateEntity(Stat stat) {
+        statDAO.updateEntity(stat);
+    }
 
-	public void deleteEntity(int id) {
-		statDAO.deleteEntity(id);
-	}
+    public Stat getEntity(int id) {
+        return statDAO.getEntity(id);
+    }
 
-	public List<Stat> getEntites() {
-		return statDAO.getEntites();
-	}
+    public void deleteEntity(int id) {
+        statDAO.deleteEntity(id);
+    }
+
+    public List<Stat> getEntites() {
+        return statDAO.getEntites();
+    }
+
+//    public List getListJSON() {
+//        return statDAO.getListJSON();
+//    }
 
 }

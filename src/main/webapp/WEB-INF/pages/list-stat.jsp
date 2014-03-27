@@ -13,29 +13,32 @@
     <body>
         <h1>List of Stats</h1>
         <p>Here you can see the list of the STATS, edit them, remove or update.</p>
-        <table border="1px" cellpadding="0" cellspacing="0" >
-            <thead>
-                <tr>
-                    <th width="10%">id</th>
-                    <th width="15%">STAT</th>
-                    <th width="10%">SKRATKA</th>
-                    <th width="10%"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="statik" items="${stats}">
+        
+        <c:if  test="${!empty stats}">
+            <table border="1px" cellpadding="0" cellspacing="0" >
+                <thead>
                     <tr>
-                        <td>${statik.idStat}</td>
-                        <td>${statik.stat}</td>
-                        <td>${statik.skratka}</td>
-                        <td>
-                            <a href="${pageContext.request.contextPath}/stat/edit/${statik.idStat}.html">Edit</a><br/>
-                            <a href="${pageContext.request.contextPath}/stat/delete/${statik.idStat}.html">Delete</a><br/>
-                        </td>
+                        <th width="10%">id</th>
+                        <th width="15%">STAT</th>
+                        <th width="10%">SKRATKA</th>
+                        <th width="10%"></th>
                     </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <c:forEach var="statik" items="${stats}">
+                        <tr>
+                            <td>${statik.idStat}</td>
+                            <td>${statik.stat}</td>
+                            <td>${statik.skratka}</td>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/stat/edit/${statik.idStat}.html">Edit</a><br/>
+                                <a href="${pageContext.request.contextPath}/stat/delete/${statik.idStat}.html">Delete</a><br/>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </c:if>
 
         <p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
 

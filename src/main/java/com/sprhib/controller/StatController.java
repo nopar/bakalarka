@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sprhib.model.Stat;
 import com.sprhib.service.EntityService;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value="/stat")
@@ -79,5 +80,11 @@ public class StatController {
 		modelAndView.addObject("message", message);
 		return modelAndView;
 	}
+        
+        @RequestMapping(value = "/SongList/",method = RequestMethod.GET)
+        @ResponseBody
+        public List<Stat> getEntites(){
+            return statService.getEntites();
+        }
 
 }
