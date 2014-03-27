@@ -29,7 +29,7 @@ public class SkupinyService implements EntityService<Skupiny> {
 	}
 
 	public void deleteEntity(int id) {
-		skupinaDAO.getEntity(id);
+		skupinaDAO.deleteEntity(id);
 	}
 
 	public List<Skupiny> getEntites() {

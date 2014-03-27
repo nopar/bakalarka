@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author nox
  */
 @Entity
-@Table(catalog = "nts_bakalarka", schema = "")
+@Table(name = "ODBER", catalog = "nts_bakalarka", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Odber.findAll", query = "SELECT o FROM Odber o"),
@@ -44,19 +44,24 @@ public class Odber implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_odber", nullable = false)
     private Integer idOdber;
+    
     @Basic(optional = false)
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date datum;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    
     @Basic(optional = false)
     @Column(nullable = false, precision = 5, scale = 2)
     private BigDecimal objem;
+    
     @Column(length = 100)
     private String poznamka;
+    
     @JoinColumn(name = "id_darca", referencedColumnName = "id_user", nullable = false)
     @ManyToOne(optional = false)
     private Pouzivatelia idDarca;
+    
     @JoinColumn(name = "id_lekar", referencedColumnName = "id_user", nullable = false)
     @ManyToOne(optional = false)
     private Pouzivatelia idLekar;

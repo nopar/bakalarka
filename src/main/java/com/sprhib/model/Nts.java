@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author nox
  */
 @Entity
-@Table(catalog = "nts_bakalarka", schema = "")
+@Table(name = "NTS", catalog = "nts_bakalarka", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Nts.findAll", query = "SELECT n FROM Nts n"),
@@ -45,23 +45,30 @@ public class Nts implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_nts", nullable = false)
     private Integer idNts;
+    
     @Basic(optional = false)
     @Column(nullable = false, length = 20)
     private String mesto;
+    
     @Basic(optional = false)
     @Column(nullable = false, length = 35)
     private String adresa;
+    
     @Basic(optional = false)
     @Column(nullable = false, length = 25)
     private String email;
+    
     @Basic(optional = false)
     @Column(name = "tel_kontakt", nullable = false, length = 30)
     private String telKontakt;
+    
     @Basic(optional = false)
     @Column(nullable = false)
     private boolean aktivna;
+    
     @ManyToMany(mappedBy = "ntsList")
     private List<Pouzivatelia> pouzivateliaList;
+    
     @JoinColumn(name = "id_kraj", referencedColumnName = "id_kraj", nullable = false)
     @ManyToOne(optional = false)
     private Kraj idKraj;

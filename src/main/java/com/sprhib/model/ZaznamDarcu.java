@@ -42,15 +42,19 @@ public class ZaznamDarcu implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_zaznam_darcu", nullable = false)
     private Integer idZaznamDarcu;
+    
     @Basic(optional = false)
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date datum;
+    
     @Column(length = 100)
     private String poznamka;
+    
     @JoinColumn(name = "id_darca", referencedColumnName = "id_user", nullable = false)
     @ManyToOne(optional = false)
     private Pouzivatelia idDarca;
+    
     @JoinColumn(name = "id_lekar", referencedColumnName = "id_user", nullable = false)
     @ManyToOne(optional = false)
     private Pouzivatelia idLekar;

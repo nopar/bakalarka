@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author nox
  */
 @Entity
-@Table(catalog = "nts_bakalarka", schema = "")
+@Table(name = "MESTO", catalog = "nts_bakalarka", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Mesto.findAll", query = "SELECT m FROM Mesto m"),
@@ -43,14 +43,18 @@ public class Mesto implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_mesto", nullable = false)
     private Integer idMesto;
+    
     @Basic(optional = false)
     @Column(nullable = false, length = 35)
     private String mesto;
+    
     @Basic(optional = false)
     @Column(nullable = false, length = 5)
     private String psc;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMesto")
     private List<Adresa> adresaList;
+    
     @JoinColumn(name = "id_kraj", referencedColumnName = "id_kraj", nullable = false)
     @ManyToOne(optional = false)
     private Kraj idKraj;

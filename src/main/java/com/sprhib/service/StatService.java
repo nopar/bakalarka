@@ -29,7 +29,7 @@ public class StatService implements EntityService<Stat> {
 	}
 
 	public void deleteEntity(int id) {
-		statDAO.getEntity(id);
+		statDAO.deleteEntity(id);
 	}
 
 	public List<Stat> getEntites() {

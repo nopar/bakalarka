@@ -40,9 +40,11 @@ public class KrvnaSkupina implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_krvna_skupina", nullable = false)
     private Integer idKrvnaSkupina;
+    
     @Basic(optional = false)
     @Column(name = "typ_krvi", nullable = false, length = 3)
     private String typKrvi;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idKrvnaSkupina")
     private List<Pouzivatelia> pouzivateliaList;
 
