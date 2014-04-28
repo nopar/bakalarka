@@ -1,0 +1,24 @@
+#test {
+    font-family: Arial, Helvetica, sans-serif;
+        
+}
+
+p {    
+    color: #aaaaaa;
+}
+
+.message{
+   color:green;
+}
+
+.message{
+	color:green;	
+}
+
+.red{
+	color:red;	
+}
+
+h1{
+	color:red;
+}

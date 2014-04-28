@@ -23,7 +23,7 @@ public class SkupinyController {
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public ModelAndView addSKupinaPage() {
-		ModelAndView modelAndView = new ModelAndView("add-skupiny");
+		ModelAndView modelAndView = new ModelAndView("skupiny/add-skupiny");
 		modelAndView.addObject("skupiny", new Skupiny());
 		return modelAndView;
 	}
@@ -43,7 +43,7 @@ public class SkupinyController {
 	
 	@RequestMapping(value="/list")
 	public ModelAndView listOfSkupiny() {
-		ModelAndView modelAndView = new ModelAndView("list-skupiny");
+		ModelAndView modelAndView = new ModelAndView("skupiny/list-skupiny");
 		
 		List<Skupiny> skupiny = skupinyService.getEntites();
 		modelAndView.addObject("skupiny", skupiny);
@@ -53,7 +53,7 @@ public class SkupinyController {
 	
 	@RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
 	public ModelAndView editSkupinaPage(@PathVariable Integer id) {
-		ModelAndView modelAndView = new ModelAndView("edit-skupiny");
+		ModelAndView modelAndView = new ModelAndView("skupiny/edit-skupiny");
 		Skupiny skupiny = skupinyService.getEntity(id);
 		modelAndView.addObject("skupiny",skupiny);
 		return modelAndView;

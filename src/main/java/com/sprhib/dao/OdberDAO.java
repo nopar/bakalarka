@@ -50,5 +50,11 @@ public class OdberDAO implements EntityDAO<Odber> {
 	public List<Odber> getEntites() {
 		return getCurrentSession().createQuery("from Odber").list();
 	}
+        
+        @SuppressWarnings("unchecked")
+	public String getOdbery() {
+		return getCurrentSession().createQuery("from count(*) Odber where id_darca = '2'").toString();
+                //select count(*) from ODBER where id_darca = '2';
+	}
 
 }

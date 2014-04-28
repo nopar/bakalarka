@@ -81,7 +81,7 @@ public class StatController {
 		return modelAndView;
 	}
         
-        @RequestMapping(value = "/SongList/",method = RequestMethod.GET)
+        @RequestMapping(value = "/statsjson",method = RequestMethod.GET)
         @ResponseBody
         public List<Stat> getEntites(){
             return statService.getEntites();

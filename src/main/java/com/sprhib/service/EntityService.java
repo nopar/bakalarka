@@ -9,6 +9,7 @@ public interface EntityService<T> {
 	public T getEntity(int id);
 	public void deleteEntity(int id);
 	public List<T> getEntites();
+       // int getOdbery(int id);
 //        public List getListJSON();
 
 }

@@ -36,4 +36,6 @@ public class OdberService implements EntityService<Odber> {
 		return odberDAO.getEntites();
 	}
 
+  
+
 }
