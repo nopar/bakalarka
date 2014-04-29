@@ -6,15 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sprhib.dao.OdberDAO;
+import com.sprhib.dao.OdberDAOImpl;
 import com.sprhib.model.Odber;
+import com.sprhib.service.OdberService;
 
 @Service
 @Transactional
 public class OdberService implements EntityService<Odber> {
 	
 	@Autowired
-	private OdberDAO odberDAO;
+	private OdberDAOImpl odberDAO;
 
 	public void addEntity(Odber odber) {
 		odberDAO.addEntity(odber);		
@@ -34,6 +35,10 @@ public class OdberService implements EntityService<Odber> {
 
 	public List<Odber> getEntites() {
 		return odberDAO.getEntites();
+	}
+        
+        public String getKonkretny() {
+		return odberDAO.getOdbery();
 	}
 
   

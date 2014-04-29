@@ -2,7 +2,7 @@ package com.sprhib.controller;
 
 import com.sprhib.model.Odber;
 import com.sprhib.service.EntityService;
-import com.sprhib.dao.OdberDAO;
+import com.sprhib.dao.OdberDAOImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,26 +24,25 @@ public class LinkController {
 		return new ModelAndView("home");
 	}
         
-        @RequestMapping(value="/pripomienkovac")
-	public ModelAndView pripomienkovac() {
-		return new ModelAndView("darca/pripomienkovac");
-	}
+//        @RequestMapping(value="/pripomienkovac")
+//	public ModelAndView pripomienkovac() {
+//		return new ModelAndView("darca/pripomienkovac");
+//	}
         
         
         @RequestMapping(value="/pocitadlo")
 	public ModelAndView pocutadloOdberov() {
             ModelAndView modelAndView = new ModelAndView("darca/pocitadlo_odberov");
             
-		int pocet = odberService.getEntites().size();
+		//int pocet = odberService.getKonkretny();
+            String pocetJeho = odberService.getKonkretny();
+                
 		
                 
-		String pocet_odberov = "Celkovy pocet odberov je " + pocet;
+		String pocet_odberov = "Celkovy pocet odberov je " + pocetJeho;
 		modelAndView.addObject("pocet_odberov", pocet_odberov);
 		
 		return modelAndView;
-            
-            
-		//return new ModelAndView("darca/pocitadlo_odberov");
 	}
 
 }

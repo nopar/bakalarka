@@ -1,6 +1,8 @@
 package com.sprhib.dao;
 
 import java.util.List;
+import com.sprhib.model.Odber;
+
 
 
 public interface EntityDAO<T> {

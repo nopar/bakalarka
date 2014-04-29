@@ -36,4 +36,9 @@ public class AdresaService implements EntityService<Adresa> {
 		return adresaDAO.getEntites();
 	}
 
+    @Override
+    public String getKonkretny() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
