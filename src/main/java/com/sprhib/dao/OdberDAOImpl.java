@@ -51,13 +51,16 @@ public class OdberDAOImpl implements OdberDAO {
 		return getCurrentSession().createQuery("from Odber").list();
 	}
         
-        @SuppressWarnings("unchecked")
-	public String getOdbery() {
-            
-            
-            Integer isDarcu = 2;
-            return getCurrentSession().createQuery("from count(*) Odber where id_darca = '2'").toString();
+       @SuppressWarnings("unchecked")
+    public Integer getOdbery() {
+
+        
+        long cisloFromQuery = (long) getCurrentSession().createQuery("select count(*) from Odber where id_darca = '2'").uniqueResult();
+        Integer pocet = (int) (long) cisloFromQuery;
+
+        return pocet;
                 //select count(*) from ODBER where id_darca = '2';
-	}
+
+    }
 
 }

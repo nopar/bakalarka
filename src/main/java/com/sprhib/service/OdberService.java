@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.sprhib.dao.OdberDAOImpl;
 import com.sprhib.model.Odber;
-import com.sprhib.service.OdberService;
 
 @Service
 @Transactional
@@ -37,7 +36,7 @@ public class OdberService implements EntityService<Odber> {
 		return odberDAO.getEntites();
 	}
         
-        public String getKonkretny() {
+        public Integer getKonkretny() {
 		return odberDAO.getOdbery();
 	}
 

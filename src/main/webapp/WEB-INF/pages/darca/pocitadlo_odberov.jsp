@@ -9,12 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
         <title>Pocitadlo odberov</title>
     </head>
     <body>
         <h1>Pocitadlo odberov</h1>
         
         <p>${pocet_odberov}</p>
+        <div class="red">treba este dorobit, ze si pozielam id usera lognuteho a tomu to zrata odbery.</div>
+        
         
     </body>
 </html>

@@ -37,7 +37,7 @@ public class KrvnaSkupinaService implements EntityService<KrvnaSkupina> {
 	}
 
     @Override
-    public String getKonkretny() {
+    public Integer getKonkretny() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

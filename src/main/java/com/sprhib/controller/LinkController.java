@@ -2,7 +2,6 @@ package com.sprhib.controller;
 
 import com.sprhib.model.Odber;
 import com.sprhib.service.EntityService;
-import com.sprhib.dao.OdberDAOImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,9 +34,9 @@ public class LinkController {
             ModelAndView modelAndView = new ModelAndView("darca/pocitadlo_odberov");
             
 		//int pocet = odberService.getKonkretny();
-            String pocetJeho = odberService.getKonkretny();
+            Integer pocetJeho = odberService.getKonkretny();
                 
-		
+		          
                 
 		String pocet_odberov = "Celkovy pocet odberov je " + pocetJeho;
 		modelAndView.addObject("pocet_odberov", pocet_odberov);

@@ -41,7 +41,7 @@ public class StatService implements EntityService<Stat> {
 //    }
 
     @Override
-    public String getKonkretny() {
+    public Integer getKonkretny() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
